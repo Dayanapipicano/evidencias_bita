@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Jugadores</title>
+   
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Lista de Jugadores</h1>
+<br>
+    <form method="GET" action="{% url 'buscar_jugadores' %}">
+        <input type="text" name="q" placeholder="Buscar jugador...">
+        <button type="submit">Buscar</button>
+    </form>
+    
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugador in  page_obj %}
+            <tr>
+                <td>{{ jugador.id }}</td>
+                <td>{{ jugador.nombre }}</td>
+                <td>{{ jugador.apellido }}</td>
+                <td>
+                    <a href="{% url 'actualizar' jugador.id %}" class="btn btn-primary">Editar</a> <!-- actualizar --> <!--  editar_jugador -->
+                    <a href="{% url 'eliminar' jugador.id %}" class="btn btn-danger">Eliminar</a> <!-- eliminar_jugador -->  <!-- eliminar -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Primera</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+{% endblock body %}
+
+<footer>
+    {%include 'footer.html'%}
+</footer>

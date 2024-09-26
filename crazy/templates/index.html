@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Crazy Grafitty</title>
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Crazy</a></li>
+            
+        </ul>
+    </nav>
+<!-- Contenido de la Página -->
+<div class="content">
+    <!-- Botones -->
+    <div class="container">
+        <div class="text-center mt-5">
+            <a href="{% url 'aplicaciones:Jugar' %}" class="btn btn-primary my-button1">Jugar</a>
+            <a href="{% url 'aplicaciones:Controles' %}" class="btn btn-secondary my-button2">Controles</a>
+            <a href="{% url 'aplicaciones:Créditos' %}" class="btn btn-info my-button3">Créditos</a>
+            <a href="{% url 'aplicaciones:Salir' %}" class="btn btn-danger my-button4">Salir</a>
+        </div>
+    <!-- Fin de botones -->
+
+    <!-- Tu contenido aquí -->
+
+    <!-- Footer -->
+<div class="footer">
+    <p>&copy; 2023 Tu Empresa. Todos los derechos reservados.</p>
+</div>
+
+</body>
+</html>

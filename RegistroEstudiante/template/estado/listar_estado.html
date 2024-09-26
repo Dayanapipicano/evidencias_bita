@@ -1,0 +1,21 @@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estados in  estado %}
+        <tr>
+            <td>{{ estados.id }}</td>
+            <td>{{ estados.nombre }}</td>
+            
+            <td>
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
